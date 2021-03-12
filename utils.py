@@ -4,8 +4,6 @@ def revise_fnames(path = 'Development/ScreenshotMasks'):
     print('Revising file names...')
     _, _, filenames = next(os.walk(path))
     for fname in filenames:
-        with open(fname) as f:
-            inputStr = f.read()
         newName = None
         if len(fname) == 9:
             newName = fname[:4] + '00' + fname[4:]
@@ -24,7 +22,6 @@ def revise_labels(path = 'Development/ScreenshotMasks'):
         outputStr = None
         with open(os.path.join(path, fname), 'r') as f:
             inputStr = f.read()
-            print(inputStr.find('7'))
             outputStr = inputStr
             conversions = {
                 '4': ['4', '5', '6', '7', '8', '9', '10', '11', '12'],
