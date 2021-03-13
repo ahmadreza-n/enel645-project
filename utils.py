@@ -6,8 +6,10 @@ def revise_fnames(path = 'Development/ScreenshotMasks'):
     for fname in filenames:
         newName = None
         if len(fname) == 9:
-            newName = fname[:4] + '00' + fname[4:]
+            newName = fname[:4] + '000' + fname[4:]
         elif len(fname) == 10:
+            newName = fname[:4] + '00' + fname[4:]
+        elif len(fname) == 11:
             newName = fname[:4] + '0' + fname[4:]
         else:
             newName = fname
