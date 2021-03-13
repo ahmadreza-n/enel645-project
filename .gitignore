@@ -1,2 +1,4 @@
 **/Development
 **/.vscode
+**/.ipynb_checkpoints
+*.h5
