@@ -4,6 +4,9 @@ import numpy as np
 from tqdm import tqdm
 import cv2
 
+def unzip(path, outPath=None):
+    option = f'-d {outPath}' if outPath is not None else ''
+    os.system(f'unzip {path} {option}')
 
 def revise_fnames(path: str):
     if (path is None):
