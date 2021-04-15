@@ -16,10 +16,12 @@ def revise_fnames(path: str):
     for fname in tqdm(filenames):
         newName = None
         if len(fname) == 5:
-            newName = '000' + fname
+            newName = '0000' + fname
         elif len(fname) == 6:
-            newName = '00' + fname
+            newName = '000' + fname
         elif len(fname) == 7:
+            newName = '00' + fname
+        elif len(fname) == 8:
             newName = '0' + fname
         else:
             newName = fname
