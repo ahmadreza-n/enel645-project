@@ -12,7 +12,7 @@ def revise_fnames(path: str):
     if (path is None):
         raise ValueError('Please enter path')
     filenames = os.listdir(path)
-    print(f'Revising {len(filenames)} file names in f{path}...')
+    print(f'Revising {len(filenames)} file names in {path}...')
     for fname in tqdm(filenames):
         newName = None
         if len(fname) == 5:
