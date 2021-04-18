@@ -26,7 +26,7 @@ The architecture employed is the [U-NET](https://arxiv.org/abs/1505.04597). U-NE
 ![Model Diagram](./media/graph.svg)
 ![Model Legend](./media/legend.svg)
 
-*Diagrams were generated using a [Net2Vis](https://arxiv.org/abs/1902.04394v1?source=post_page---------------------------).*
+*This diagram was generated using [Net2Vis](https://arxiv.org/abs/1902.04394v1?source=post_page---------------------------).*
 
 ## Usage
 1. First install the required libraries.
