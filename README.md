@@ -19,6 +19,8 @@ This projects aims to perform semantic segmentation on a soccer field for humano
 
 ## Dataset
 The main dataset used to train the main network is generated using [Unreal Engine](https://www.unrealengine.com/). This dataset is composed of 10,000 images along with their true masks (pixel-wise labels). In order to evaluate the model for real a use case, we have to evaluate the network with real images taken from different robotic events. For this purpose, we used [Hasty.AI](https://hasty.ai/) to manually generate masks for 250 real images.
+The Simulation data can be found in [GDrive](https://drive.google.com/file/d/1xz60lBHB_MBsruSYG3_x3Mqh-gX_wwow/view?usp=sharing).
+The real dataset can be found here: [GDrive](https://drive.google.com/file/d/1hgrrnJukFPVerCvv9wbIAUOGSEeIrIWa/view?usp=sharing)
 
 ## Neural Network
 The architecture employed is the [U-NET](https://arxiv.org/abs/1505.04597). U-NET is a fully convolutional auto-encoder, which is widely used for similar purposes (i.e. segmentation). The following diagram depicts the architecture of the network.
@@ -29,8 +31,10 @@ The architecture employed is the [U-NET](https://arxiv.org/abs/1505.04597). U-NE
 *This diagram was generated using [Net2Vis](https://arxiv.org/abs/1902.04394v1?source=post_page---------------------------).*
 
 ## Usage
-1. First install the required libraries.
-2. Run [enel645_group11_final_project.py](./enel645_group11_final_project.py) to train the model using simulated data.
-3. Run the [transfer_learning.py](./transfer_learning.py) to modify the weights for real images.
+1. Install the required libraries.
+2. Download the dataset.
+3. Modify the environnement variables (e.g. dataset path).
+4. Run [enel645_group11_final_project.py](./enel645_group11_final_project.py) to train the model using simulated data.
+5. Run the [transfer_learning.py](./transfer_learning.py) to modify the weights for real images.
 
 **For both simulation and real data, some figures will be saved into results directory for visual assessment**
