@@ -1,5 +1,7 @@
 **/dataset
+**/test-data
 **/.vscode
 **/.ipynb_checkpoints
 **/__pycache__
 *.h5
+*.out
