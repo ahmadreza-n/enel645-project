@@ -89,6 +89,7 @@ class DataSequence(tf.keras.utils.Sequence):
 
         mask = tf.keras.preprocessing.image.load_img(target_path, color_mode='rgb', target_size=self.img_size)
         mask = tf.keras.preprocessing.image.img_to_array(mask)
+        # replace colors with corresponding labels
         result = np.ndarray(shape=mask.shape[:2], dtype='float32')
         result[:, :] = -1
         for rgb, idx in mapping.items():
@@ -99,11 +100,13 @@ class DataSequence(tf.keras.utils.Sequence):
             # document incorrect mapping
             print('\nincorrect mapping')
             print(colors)
+        # One-hot encoded representation
         result = tf.keras.utils.to_categorical(result, self.n_classes)
 
         return img, result
 
 
+# Split dataset into train/validation/test
 val_samples = int(0.15 * len(input_paths))
 test_samples = int(0.05 * len(input_paths))
 train_samples = len(input_paths) - val_samples - test_samples
@@ -129,6 +132,7 @@ print('simulation data test_samples', test_samples)
 
 
 #%% Define the model
+# weight of each class in the whole dataset
 weights = np.array([1-0.008129217, 1-0.741364343, 1-0.038759669,
                     1-0.033972565, 1-0.159647414, 1-0.018480072])
 

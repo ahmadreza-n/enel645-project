@@ -147,6 +147,7 @@ class DataSequence(tf.keras.utils.Sequence):
         return x, y
 
 
+#Split data into train/validation/test
 val_samples = int(0.15 * len(input_paths))
 test_samples = int(0.05 * len(input_paths))
 train_samples = len(input_paths) - val_samples - test_samples
@@ -194,7 +195,7 @@ print('Real data: val_samples', val_samples)
 print('Real data: test_samples', test_samples)
 
 # %% Define the model
-
+#wight of each class in the whole dataset
 weights = np.array([1-0.008129217, 1-0.741364343, 1-0.038759669,
                     1-0.033972565, 1-0.159647414, 1-0.018480072])
 
@@ -364,6 +365,7 @@ model = get_unet_mod()
 
 model.load_weights('/home/ahmadreza.nazari/unet_seg_v11.h5')
 
+#Extract Metrics
 print('Evaluating with simulation data...')
 metrics = model.evaluate(test_gen)
 for i, metric in enumerate(metrics):
@@ -375,6 +377,7 @@ for i, metric in enumerate(metrics):
     print(f'Metric {i}:', metric)
 
 
+#visualize test results
 print('Getting predictions...')
 
 test_preds = model.predict(test_gen)
@@ -502,6 +505,7 @@ metrics2 = model.evaluate(test_gen2)
 print('Dice Coef:', metrics2[0])
 print('Accuracy:', metrics2[1])
 
+#Visualize data
 test_preds = model.predict(test_gen)
 test_preds2 = model.predict(test_gen2)
 
